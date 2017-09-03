@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body class="site">
+    <p>&nbsp;</p>
+    <div class="container">
+      <div class="content">
+        <div class="center">
+          <img id="logo" src="http://i.imgur.com/fHt53ne.png" alt="DoCSoc">
+        </div>
+        <br>
+        <h1 class="title">$title$</h1>
+        $if(subtitle)$
+        <h2 class="title">$subtitle$</h2>
+        $endif$
+        $if(date)$
+        <p class="date">$date$</p>
+        $endif$
+        $if(show_social)$
+        <div class="head-links">
+          <a href="http://bit.ly/icdocsoc_fb">
+            <img src="http://i.imgur.com/mwEtDPb.png" alt="Facebook">
+            &nbsp;/ICDoCSoc
+          </a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+          <a href="http://bit.ly/icdocsoc_twitter">
+            <img src="http://i.imgur.com/O3B3wWb.png" alt="Twitter">
+            &nbsp;@ICDoCSoc
+          </a>
+        </div>
+        $endif$
+        <hr>
+        $if(show_agenda)$
+        <section class="agenda">
+          <ol>
+            $for(agenda)$
+            <li>$agenda$</li>
+            $endfor$
+          </ol>
+        </section>
+        $endif$
+      </div>
+      <div role="main" class="main">
+        <section class="content">
+          $body$
+        </section>
+      </div>
+      $if(show_sponsorship)$
+      <div class="content">
+        <hr>
+        <div class="sponsored-by">
+          <p>DoCSoc is Sponsored By</p>
+          <img src="http://i.imgur.com/ptaOfCJ.png">
+        </div>
+      </div>
+      $endif$
+    </div>
+    <p>&nbsp;</p>
+  </body>
+</html>

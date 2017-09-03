@@ -15,8 +15,6 @@ import Text.Blaze.Html
 import Text.Blaze.Html.Renderer.String (renderHtml)
 import qualified Text.Pandoc.Options as PanOptions (def)
 
-import Templates
-
 -- Options
 
 pandocExtensions :: Set.Set Extension

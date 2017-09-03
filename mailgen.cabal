@@ -26,7 +26,6 @@ executable mailgen
                      , pandoc
                      , pandoc-types
   default-language:    Haskell2010
-  other-modules:       Templates
 
 test-suite mailgen-test
   type:                exitcode-stdio-1.0

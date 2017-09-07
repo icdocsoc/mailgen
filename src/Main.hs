@@ -1,11 +1,12 @@
-{-# LANGUAGE TemplateHaskell #-}
-
 module Main where
 
 -- Imports
 
 import System.Environment (getArgs)
 import System.IO
+import System.Directory
+import Control.Monad
+import System.Exit
 
 import qualified Data.Set as Set
 import Text.Pandoc hiding (pandocExtensions)
@@ -78,16 +79,49 @@ processMarkdown markdown template =
 
     template' = pandocWriterOptionsWithTemplate template
 
+-- Util
+putStrLnError :: String -> IO ()
+putStrLnError = hPutStrLn stderr
+
+printHelpString :: IO ()
+printHelpString = putStrLnError "mailgen <markdown file> <template file>"
+
+printFileNotExistString :: String -> IO ()
+printFileNotExistString filename = putStrLnError $ "file " ++ filename ++ " does not exist"
+
+-- Validation
+validate :: Bool -> IO () -> IO ()
+validate condition otherwise =
+  if not condition then
+    otherwise >> exitFailure
+    else
+      return ()
+
 -- Main Function
 
 main :: IO ()
 main = do
   args <- getArgs
-  markdownContents <- readFile (args !! 0)
-  templateContents <- readFile (args !! 1)
-  let
-    htmlOrError = processMarkdown markdownContents templateContents
-    in putStrLn $ case htmlOrError of
-      Left error -> error
-      Right html -> renderHtml html
+
+  -- Validate the argument length
+  validate (length args >= 2) printHelpString
+
+  -- Validate that the files exist
+  let (markdownFile, templateFile) = (args !! 0, args !! 1)
+
+  markdownIsFile <- doesFileExist markdownFile
+  validate markdownIsFile (printFileNotExistString markdownFile)
+  templateIsFile <- doesFileExist templateFile
+  validate templateIsFile (printFileNotExistString templateFile)
+
+  -- Read the files
+  markdownContents <- readFile markdownFile
+  templateContents <- readFile templateFile
+
+  -- Output the HTML or an error
+  let htmlOrError = processMarkdown markdownContents templateContents
+  case htmlOrError of
+    Left error -> putStrLnError error
+    Right html -> putStrLn $ renderHtml html
+
   return ()

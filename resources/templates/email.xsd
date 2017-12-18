@@ -52,8 +52,9 @@
       <xsd:element name="text" type="xsd:string" minOccurs="0" />
     </xsd:all>
 
-    <xsd:attribute name="startDate" type="xsd:dateTime" use="required" />
-    <xsd:attribute name="endDate" type="xsd:dateTime" use="required" />
+    <xsd:attribute name="startDate" type="xsd:dateTime" default="1970-01-01T00:00:00Z" />
+    <xsd:attribute name="endDate" type="xsd:dateTime" default="1970-01-01T00:00:00Z" />
+    <xsd:attribute name="location" type="xsd:string" />
     <xsd:attribute name="external" type="xsd:boolean" default="false" />
   </xsd:complexType>
 

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      DoCSoc Email Generator Schema.
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:element name="email" type="EmailType"/>
+
+  <xsd:complexType name="EmailType">
+    <xsd:choice maxOccurs="unbounded">
+      <xsd:element name="text" type="xsd:string" />
+      <xsd:element name="event" type="EventType" />
+      <xsd:element name="sponsor" type="SponsorType" />
+      <xsd:element name="image" type="ImageType" />
+    </xsd:choice>
+    <xsd:attribute name="logos" type="xsd:boolean" default="true" />
+    <xsd:attribute name="agenda" type="xsd:boolean" default="true" />
+    <xsd:attribute name="social" type="xsd:boolean" default="true" />
+  </xsd:complexType>
+
+  <xsd:complexType name="EventType">
+    <xsd:all>
+      <xsd:element name="image" minOccurs="0">
+        <xsd:complexType>
+          <xsd:attribute name="src" type="xsd:anyURI" use="required" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="facebook" minOccurs="0">
+        <xsd:complexType>
+          <xsd:attribute name="id" type="xsd:nonNegativeInteger" use="required" />
+          <xsd:attribute name="alias" type="xsd:anyURI" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="links" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence maxOccurs="unbounded">
+            <xsd:element name="link">
+              <xsd:complexType>
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                    <xsd:attribute name="href" type="xsd:anyURI" use="required" />
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="text" type="xsd:string" minOccurs="0" />
+    </xsd:all>
+
+    <xsd:attribute name="startDate" type="xsd:dateTime" use="required" />
+    <xsd:attribute name="endDate" type="xsd:dateTime" use="required" />
+    <xsd:attribute name="external" type="xsd:boolean" default="false" />
+  </xsd:complexType>
+
+  <xsd:complexType name="SponsorType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="company" use="required">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="accenture" />
+              <xsd:enumeration value="baml" />
+              <xsd:enumeration value="barrick" />
+              <xsd:enumeration value="blackrock" />
+              <xsd:enumeration value="bloomberg" />
+              <xsd:enumeration value="capital_one" />
+              <xsd:enumeration value="ef" />
+              <xsd:enumeration value="facebook" />
+              <xsd:enumeration value="g_research" />
+              <xsd:enumeration value="go_cardless" />
+              <xsd:enumeration value="jpmorgan" />
+              <xsd:enumeration value="microsoft" />
+              <xsd:enumeration value="netcraft" />
+              <xsd:enumeration value="newvoicemedia" />
+              <xsd:enumeration value="next_jump" />
+              <xsd:enumeration value="palantir" />
+              <xsd:enumeration value="sig" />
+              <xsd:enumeration value="thread" />
+              <xsd:enumeration value="wluper" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="ImageType">
+    <xsd:attribute name="width" type="xsd:nonNegativeInteger" default="100" />
+    <xsd:attribute name="src" type="xsd:anyURI" use="required" />
+    <xsd:attribute name="alt" type="xsd:string" />
+    <xsd:attribute name="title" type="xsd:string" />
+  </xsd:complexType>
+</xsd:schema>

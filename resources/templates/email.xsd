@@ -11,6 +11,7 @@
 
   <xsd:complexType name="EmailType">
     <xsd:choice maxOccurs="unbounded">
+      <xsd:element name="heading" type="xsd:string" />
       <xsd:element name="text" type="xsd:string" />
       <xsd:element name="event" type="EventType" />
       <xsd:element name="sponsor" type="SponsorType" />

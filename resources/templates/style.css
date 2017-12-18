@@ -235,3 +235,63 @@ ul li {
     padding-bottom: 0px;
   }
 }
+
+/* -------------------------------------------
+                COMPONENTS
+-------------------------------------------- */
+
+.component.event > .left {
+  float: left;
+}
+
+.component.event > .right {
+  margin-left: 110px;
+}
+
+.component.event > .right ul {
+  padding-top: 20px;
+  padding-left: 0;
+}
+
+.component.event .date {
+  position: relative;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.component.event .month {
+  position: relative;
+  background-color: #ff2841;
+  height: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 30px;
+  color: white;
+  font-size: 20px;
+}
+
+.component.event .day {
+  position: relative;
+  background-color: white;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  color: black;
+  font-size: 60px;
+  line-height:70px;
+}
+
+.component.event > .clear {
+  clear: both;
+}
+
+.component.sponsor .logo {
+  position: relative;
+  width: 50%;
+}

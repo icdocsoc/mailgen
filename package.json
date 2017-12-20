@@ -1,0 +1,22 @@
+{
+  "name": "mailgen",
+  "version": "1.0.0",
+  "description": "DoCSoc's Email Generator",
+  "main": "mailgen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icdocsoc/mailgen.git"
+  },
+  "author": "Nik Vangerow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/icdocsoc/mailgen/issues"
+  },
+  "homepage": "https://github.com/icdocsoc/mailgen#readme",
+  "dependencies": {
+    "libxml-xsd": "^0.5.2"
+  }
+}

@@ -21,3 +21,4 @@ cabal.project.local
 .ghc.environment.*
 *.swp
 .DS_Store
+/node_modules

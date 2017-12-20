@@ -4,12 +4,11 @@
 
 // Dependencies
 const fs = require('fs'),
-      xsd = require('libxml-xsd'),
-      libxmljs = xsd.libxmljs
+      libxml = require('libxmljs')
 
 // Load and parse the schema
 const emailSchemaContents = readFileSyncOrExit("email.xsd", "schema")
-const schema = xsd.parse(emailSchemaContents)
+const schema = libxml.parseXmlString(emailSchemaContents)
 
 // Ensure that we receive the correct command-line arguments
 if (process.argv.length <= 2) {
@@ -30,15 +29,14 @@ function readFileSyncOrExit(path, kind) {
 // Read the email file
 const emailXMLContents = readFileSyncOrExit(process.argv[2], "email")
 
+// Parse the XML
+const emailXMLDoc = libxml.parseXmlString(emailXMLContents)
+
 // Validate against the schema
-const result = schema.validate(emailXMLContents)
-if (result !== null) {
+if (!emailXMLDoc.validate(schema)) {
   console.error("Email XML is invalid.")
-  console.error(result)
+  console.error(emailXMLDoc.validationErrors)
   process.exit(3)
 }
-
-// Parse the XML
-const emailXMLDoc = libxmljs.parseXmlString(emailXMLContents)
 
 console.dir(emailXMLDoc)

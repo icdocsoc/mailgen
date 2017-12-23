@@ -8,9 +8,9 @@ const fs            = require('fs'),
       moment        = require('moment'),
       path          = require('path'),
 // Own dependencies
-      types         = require('./email.js'),
-      sponsors      = require('./sponsors.js'),
-      exporter      = require('./exporter.js')
+      types         = require('./src/email.js'),
+      sponsors      = require('./src/sponsors.js'),
+      exporter      = require('./src/exporter.js')
 
 // Extension specific to XML reader
 types.EmailMeta.constructWithNode = node => {
@@ -106,7 +106,7 @@ function attrOrDefaultValue(node, attribute, def) {
 
 (async () => {
   // Load and parse the schema
-  const emailSchemaContents = readFileSyncOrExit("email.xsd", "schema")
+  const emailSchemaContents = readFileSyncOrExit("resources/email.xsd", "schema")
   const schema = libxml.parseXmlString(emailSchemaContents)
 
   // Ensure that we receive the correct command-line arguments

@@ -22,3 +22,7 @@ cabal.project.local
 *.swp
 .DS_Store
 /node_modules
+test.xml
+email.xml
+test.html
+email.html

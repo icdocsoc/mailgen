@@ -4,17 +4,23 @@ const graph    = require('fbgraph'),
       jsonfile = require('jsonfile')
 
 // Set the access token
-graph.setAccessToken(jsonfile.readFileSync("config.json").access_token);
+graph.setAccessToken(jsonfile.readFileSync("config.json").access_token)
 
-module.exports = id => {
-  graph.get("137844650270705?fields=cover,description,start_time,end_time,event_times,name,place,timezone", function(err, res) {
-    console.log(res); // { id: '4', name: 'Mark Zuckerberg'... }
-  });
+async function facebookFetch(url) {
+  return new Promise((resolve, reject) => {
+    graph.get(url, (err, res) => {
+      if (err !== null) {
+        reject(JSON.stringify(err))
+        return
+      }
 
-  // Start & end times
-  // Location, parsed down into something readable.
-  // Header image if available
-  // Description
-  return {
-  }
+      resolve(res)
+    })
+  })
+}
+
+module.exports = async id => {
+  const url =
+    `${id}?fields=cover,description,start_time,end_time,event_times,name,place,timezone`
+  return await facebookFetch(url)
 }

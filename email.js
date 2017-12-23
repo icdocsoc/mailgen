@@ -1,7 +1,8 @@
 "use strict";
 
 const fb         = require('./fb.js'),
-      sponsors   = require('./sponsors.js')
+      sponsors   = require('./sponsors.js'),
+      moment     = require('moment')
 
 module.exports.EmailMeta = class EmailMeta {
   constructor(logos = true, agenda = true, social = true) {
@@ -52,7 +53,7 @@ module.exports.DateRange = class DateRange {
 }
 
 module.exports.EmailEvent = class EmailEvent {
-  constructor(date = null, location, external = false) {
+  constructor(date = null, location = null, external = false) {
     this.date = date
     this.location = location
     this.external = external
@@ -64,7 +65,11 @@ module.exports.EmailEvent = class EmailEvent {
   }
 
   get hasDate() {
-    return date !== null
+    return this.date !== null
+  }
+
+  get hasLocation() {
+    return this.location !== null
   }
 
   get hasImage() {
@@ -75,8 +80,51 @@ module.exports.EmailEvent = class EmailEvent {
     return this.facebook !== null
   }
 
-  fetch() {
-    // TODO: perform the fetch and the update
+  async fetch() {
+    if (!this.hasFacebook) {
+      // Can't fetch if not Facebook event
+      return
+    }
+
+    const fbd = await fb(this.facebook.id)
+    // Populate with facebook data
+    if (!this.hasImage) {
+      this.image = fbd.cover.source
+    }
+
+    if (!this.hasText) {
+      this.text = fbd.description
+    }
+
+    if (!this.hasDate) {
+      this.date = new module.exports.DateRange(moment(fbd.start_time), moment(fbd.end_time))
+    }
+
+    // TODO: Event title
+
+    if (!this.hasLocation) {
+      if (fbd.place.location === undefined) {
+        this.location = fbd.place.name
+      } else {
+        this.location = `${fbd.place.name}, ${fbd.place.location.street},
+          ${fbd.place.location.city}, ${fbd.place.location.zip}`
+      }
+    }
+
+    // Add the event link (or aliased link)
+    if (!this.hasLinks) {
+      this.links = []
+    }
+
+    this.links = [
+      new module.exports.EmailEventLink(((efb) => {
+          if (efb.hasAlias) {
+            return efb.alias
+          } else {
+            return `https://www.facebook.com/events/${efb.id}/`
+          }
+        })(this.facebook), "Facebook")
+    ].concat(this.links)
   }
 
   get hasLinks() {

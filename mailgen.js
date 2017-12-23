@@ -12,54 +12,6 @@ const fs            = require('fs'),
       sponsors      = require('./sponsors.js'),
       exporter      = require('./exporter.js')
 
-// Load and parse the schema
-const emailSchemaContents = readFileSyncOrExit("email.xsd", "schema")
-const schema = libxml.parseXmlString(emailSchemaContents)
-
-// Ensure that we receive the correct command-line arguments
-if (process.argv.length <= 2) {
-  console.error("Please provide email document as an argument!")
-  console.log("Usage ./mailgen.js <path to email.xml>")
-  process.exit(1)
-}
-
-function readFileSyncOrExit(path, kind) {
-  try {
-    return fs.readFileSync(path, {encoding: "utf8"})
-  } catch (err) {
-    console.error(`Cannot read ${kind} file\n`, err)
-    process.exit(2)
-  }
-}
-
-// Read the email file
-const emailFileName = process.argv[2]
-const emailXMLContents = readFileSyncOrExit(emailFileName, "email")
-
-// Parse the XML
-const emailXMLDoc = libxml.parseXmlString(emailXMLContents, {
-  noent: true,
-  dtdload: false,
-  doctype: false,
-  noblanks: true
-})
-
-// Validate against the schema
-if (!emailXMLDoc.validate(schema)) {
-  console.error("Email XML is invalid.")
-  console.error(emailXMLDoc.validationErrors)
-  process.exit(3)
-}
-
-function attrOrDefaultValue(node, attribute, def) {
-  const attr = node.attr(attribute)
-  if (attr == null) {
-    return def
-  }
-
-  return attr.value()
-}
-
 // Extension specific to XML reader
 types.EmailMeta.constructWithNode = node => {
   return new types.EmailMeta(
@@ -84,7 +36,7 @@ types.EmailEvent.constructWithNode = node => {
       return startDate !== null && endDate !== null ?
         new types.DateRange(moment(startDate), moment(endDate)) : null
     })(),
-    attrOrDefaultValue(node, "location", ""),
+    attrOrDefaultValue(node, "location", null),
     attrOrDefaultValue(node, "external", "false") === "true")
 
   const children = node.childNodes()
@@ -131,34 +83,88 @@ types.EmailImage.constructWithNode = node => {
     attrOrDefaultValue(node, "title", null))
 }
 
-// Get email metadata
-const emailMeta = types.EmailMeta.constructWithNode(emailXMLDoc.root())
-const emailTypeFields = {
-  "heading" : types.EmailHeading,
-  "text"    : types.EmailText,
-  "event"   : types.EmailEvent,
-  "sponsor" : types.EmailSponsor,
-  "image"   : types.EmailImage
+// Utility functions
+function readFileSyncOrExit(path, kind) {
+  try {
+    return fs.readFileSync(path, {encoding: "utf8"})
+  } catch (err) {
+    console.error(`Cannot read ${kind} file\n`, err)
+    process.exit(2)
+  }
 }
 
-const emailData = emailXMLDoc.childNodes().map(x =>
-  emailTypeFields[x.name()].constructWithNode(x))
-
-// Update the facebook events with facebook information
-/*{
-  const facebookEvents = emailData.filter(x =>
-    x instanceof types.EmailEvent && x.hasFacebook)
-  for (const fbe of facebookEvents) {
-    fbe.fetch()
+function attrOrDefaultValue(node, attribute, def) {
+  const attr = node.attr(attribute)
+  if (attr == null) {
+    return def
   }
-}*/
 
-// Generate the markdown
+  return attr.value()
+}
 
-const markdown = exporter.render(emailMeta, emailData)
-const newEmailFileName = path.join(path.dirname(emailFileName),
-  path.basename(emailFileName, ".xml") + ".html")
+//* * * * * * MAIN * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-fs.writeFileSync(newEmailFileName, markdown, {"encoding": "utf8"})
+(async () => {
+  // Load and parse the schema
+  const emailSchemaContents = readFileSyncOrExit("email.xsd", "schema")
+  const schema = libxml.parseXmlString(emailSchemaContents)
 
-console.log(`Wrote email to: ${newEmailFileName}`)
+  // Ensure that we receive the correct command-line arguments
+  if (process.argv.length <= 2) {
+    console.error("Please provide email document as an argument!")
+    console.log("Usage ./mailgen.js <path to email.xml>")
+    process.exit(1)
+  }
+
+  // Read the email file
+  const emailFileName = process.argv[2]
+  const emailXMLContents = readFileSyncOrExit(emailFileName, "email")
+
+  // Parse the XML
+  const emailXMLDoc = libxml.parseXmlString(emailXMLContents, {
+    noent: true,
+    dtdload: false,
+    doctype: false,
+    noblanks: true
+  })
+
+  // Validate against the schema
+  if (!emailXMLDoc.validate(schema)) {
+    console.error("Email XML is invalid.")
+    console.error(emailXMLDoc.validationErrors)
+    process.exit(3)
+  }
+
+
+  // Get email metadata
+  const emailMeta = types.EmailMeta.constructWithNode(emailXMLDoc.root())
+  const emailTypeFields = {
+    "heading" : types.EmailHeading,
+    "text"    : types.EmailText,
+    "event"   : types.EmailEvent,
+    "sponsor" : types.EmailSponsor,
+    "image"   : types.EmailImage
+  }
+
+  const emailData = emailXMLDoc.childNodes().map(x =>
+    emailTypeFields[x.name()].constructWithNode(x))
+
+  // Update the facebook events with facebook information
+  {
+    const facebookEvents = emailData.filter(x =>
+      x instanceof types.EmailEvent && x.hasFacebook)
+    for (const fbe of facebookEvents) {
+      await fbe.fetch()
+    }
+  }
+
+  // Generate the markdown
+
+  const markdown = exporter.render(emailMeta, emailData)
+  const newEmailFileName = path.join(path.dirname(emailFileName),
+    path.basename(emailFileName, ".xml") + ".html")
+
+  fs.writeFileSync(newEmailFileName, markdown, {"encoding": "utf8"})
+
+  console.log(`Wrote email to: ${newEmailFileName}`)
+})()

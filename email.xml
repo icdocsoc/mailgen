@@ -4,7 +4,7 @@
   logos="true" agenda="true" social="true">
   <heading>Something</heading>
   <text>
-    Verbatim text
+  Verbatim text
   </text>
   <event startDate="1970-01-01T00:00:00Z" endDate="2001-09-09T02:46:40+01:00" external="true">
     <image src="header image" />
@@ -15,12 +15,8 @@
     <links>
       <link href="link">Not Facebook</link>
     </links>
-    <text>
-      Description text
-    </text>
+    <text>Description text</text>
   </event>
-  <sponsor company="bloomberg">
-    Sponsor post
-  </sponsor>
+  <sponsor company="bloomberg">Sponsor post</sponsor>
   <image width="100" src="link to image" alt="alt text" title="title" />
 </email>

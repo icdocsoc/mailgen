@@ -1,26 +1,29 @@
 <div class="component event">
   <div>
-    <img src="$header$" alt="$header-alt$"/>
+    <img src="{{header}}" alt="{{header_alt}}"/>
   </div>
   <div class="left">
     <div class="date">
-      <div class="month">$month$</div>
-      <div class="day">$day$</div>
+      <div class="month">{{month}}</div>
+      <div class="day">{{day}}</div>
     </div>
   </div>
   <div class="right">
     <ul>
-      <li><strong>When:</strong> $date$</li>
-      <li><strong>Where:</strong> $location$</li>
-      <li><strong>Link$if(plural-links)$s$endif$:</strong>
-        $for(links)$
-        <a href="$links.href$">$links.text$</a>&nbsp;
-        $endfor$
+      <li><strong>When:</strong> {{date}}</li>
+      <li><strong>Where:</strong> {{location}}</li>
+      <li><strong>Link{{#plural_links}}s{{/plural_links}}:</strong>
+        {{#links}}
+        <a href="{{href}}">{{text}}</a>&nbsp;
+        {{/links}}
       </li>
     </ul>
   </div>
   <div class="clear"></div>
   <p>
-    $description$
+    {{description}}
   </p>
+  {{#external}}<p>
+    <em>Please note that this event is not organised by DoCSoc.</em>
+  </p>{{/external}}
 </div>

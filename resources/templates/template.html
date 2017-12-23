@@ -1,54 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <!-- Trying out the entire design here first, before I split everything into
-    components and start working on the composer -->
   <head>
     <title>Template</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="resources/templates/style.css" />
   </head>
   <body>
     <p>&nbsp;</p>
     <div class="container">
       <div class="content">
-        <h1 class="component heading">Heading Text</h1>
-        <div class="component event">
-          <div class="left">
-            <div class="date">
-              <div class="month">December</div>
-              <div class="day">16</div>
-            </div>
-          </div>
-          <div class="right">
-            <ul>
-              <li><strong>When:</strong> 16th December 2017, 19.00-23.30</li>
-              <li><strong>Where:</strong> Metric</li>
-              <li><strong>Link:</strong> <a href="">Facebook</a></li>
-            </ul>
-          </div>
-          <div class="clear"></div>
-          <p>
-            $description$
-          </p>
-        </div>
-        <div class="component sponsor">
-          <center>
-            <div class="logo">
-              <img src="https://docsoc.co.uk/img/sponsors/facebook_logo.png" alt="Facebook Logo" />
-            </div>
-          </center>
-          <p>
-          Content
-          </p>
-        </div>
-        <div class="component image">
-          <center>
-            <img src="https://docsoc.co.uk/img/sponsors/facebook_logo.png"
-              alt="Facebook Logo" title="These people give us a lot of money" />
-          </center>
-        </div>
+        {{content}}
       </div>
     </div>
     <p>&nbsp;</p>

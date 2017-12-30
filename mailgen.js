@@ -7,6 +7,8 @@ const fs            = require('fs'),
       libxml        = require('libxmljs'),
       moment        = require('moment'),
       path          = require('path'),
+      inlineCss     = require('inline-css'),
+      hminify       = require('html-minifier'),
 // Own dependencies
       types         = require('./src/email.js'),
       sponsors      = require('./src/sponsors.js'),
@@ -158,13 +160,38 @@ function attrOrDefaultValue(node, attribute, def) {
     }
   }
 
-  // Generate the markdown
+  // Generate the HTML
 
-  const markdown = exporter.render(emailMeta, emailData)
+  const outHtml = await (async () => {
+    // Render based on templates and extracted data
+    const html = exporter.render(emailMeta, emailData)
+
+    // Inline the CSS
+    const inlined = await inlineCss(html, {
+      url: `file://${__dirname}/resources/`,
+      preserveMediaQueries: true,
+      applyWidthAttributes: true,
+      applyTableAttributes: true,
+      removeHtmlSelectors: true
+    })
+
+    // Minify the HTML
+    const minified = hminify.minify(inlined, {
+      collapseWhitespace: true,
+      minifyCSS: true,
+      removeComments: true,
+      removeEmptyAttributes: true,
+      removeEmptyElements: true,
+      removeRedundantAttributes: true,
+      sortAttributes: true
+    })
+
+    return minified
+  })();
+
   const newEmailFileName = path.join(path.dirname(emailFileName),
     path.basename(emailFileName, ".xml") + ".html")
-
-  fs.writeFileSync(newEmailFileName, markdown, {"encoding": "utf8"})
+  fs.writeFileSync(newEmailFileName, outHtml, {"encoding": "utf8"})
 
   console.log(`Wrote email to: ${path.resolve(newEmailFileName)}`)
 })()

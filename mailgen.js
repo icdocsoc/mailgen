@@ -166,5 +166,5 @@ function attrOrDefaultValue(node, attribute, def) {
 
   fs.writeFileSync(newEmailFileName, markdown, {"encoding": "utf8"})
 
-  console.log(`Wrote email to: ${newEmailFileName}`)
+  console.log(`Wrote email to: ${path.resolve(newEmailFileName)}`)
 })()

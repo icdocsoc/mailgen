@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Template</title>
+    <title>DoCSoc</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -12,8 +12,57 @@
     <p>&nbsp;</p>
     <div class="container">
       <div class="content">
-        {{content}}
+        <div class="center">
+          <img class="docsoc-logo"
+            src="https://docsoc.co.uk/img/imperial-docsoc-logo-inv.png?v={{uuid}}"
+            alt="DoCSoc Logo" />
+        </div>
+        <br/>
+        <h1 class="title">Weekly Digest</h1>
+        {{#has_social}}
+          <div class="head-links">
+            <a href="https://www.facebook.com/ICDocSoc/">
+              <img
+                 src="https://docsoc.co.uk/img/icons/square-facebook-50.png?v={{uuid}}"
+                 alt="Facebook" /> /ICDoCSoc
+            </a>
+            &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+            <a href="https://twitter.com/ICDoCSoc">
+              <img
+                 src="https://docsoc.co.uk/img/icons/square-twitter-50.png?v={{uuid}}"
+                 alt="Twitter" /> /ICDoCSoc
+            </a>
+          </div>
+        {{/has_social}}
+        <hr />
+        {{#has_agenda}}
+          <section class="agenda">
+            <ol>
+              {{#agenda}}
+              <li>{{.}}</li>
+              {{/agenda}}
+            </ol>
+          </section>
+          <hr/>
+        {{/has_agenda}}
       </div>
+      <div class="main" role="main">
+        <section class="content">
+          {{content}}
+        </section>
+      </div>
+      {{#has_logos}}
+      <div class="content">
+        <hr/>
+        <div class="sponsored-by">
+          <p>DoCSoc Is Sponsored By</p>
+          <a href="https://docsoc.co.uk/sponsors/">
+            <img src="https://docsoc.co.uk/img/sponsors-collage.png?v={{uuid}}"
+                 alt="DoCSoc Sponsors" />
+          </a>
+        </div>
+      </div>
+      {{/has_logos}}
     </div>
     <p>&nbsp;</p>
   </body>

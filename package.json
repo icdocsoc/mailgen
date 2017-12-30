@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/icdocsoc/mailgen#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "fbgraph": "^1.4.1",
     "html-minifier": "^3.5.8",
     "inline-css": "^2.2.3",
@@ -24,6 +25,7 @@
     "libxmljs": "^0.18.7",
     "markdown-it": "^8.4.0",
     "moment": "^2.20.1",
-    "mustache": "^2.3.0"
+    "mustache": "^2.3.0",
+    "uuid": "^3.1.0"
   }
 }

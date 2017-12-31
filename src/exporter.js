@@ -40,6 +40,7 @@ module.exports.render = (meta, content) => {
     "has_social": meta.social,
     "has_logos": meta.logos,
     "has_agenda": meta.agenda,
+    "title": meta.title,
     "agenda": agendaItems,
     "content": blocks,
     "uuid": encodeURIComponent(uuid())

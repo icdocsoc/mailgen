@@ -17,8 +17,9 @@
             src="https://docsoc.co.uk/img/imperial-docsoc-logo-inv.png?v={{uuid}}"
             alt="DoCSoc Logo" />
         </div>
-        <br/>
-        <h1 class="title">Weekly Digest</h1>
+        {{#title}}
+        <h1 class="title">{{.}}</h1>
+        {{/title}}
         {{#has_social}}
           <div class="head-links">
             <a href="https://www.facebook.com/ICDocSoc/">

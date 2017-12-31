@@ -5,10 +5,15 @@ const fb         = require('./fb.js'),
       moment     = require('moment')
 
 module.exports.EmailMeta = class EmailMeta {
-  constructor(logos = true, agenda = true, social = true) {
+  constructor(logos = true, agenda = true, social = true, title = null) {
     this.logos = logos
     this.agenda = agenda
     this.social = social
+    this.title = title
+  }
+
+  get hasTitle() {
+    return title !== null
   }
 }
 
@@ -39,7 +44,7 @@ module.exports.EmailText = class EmailText {
 
   templateData(md) {
     return {
-      "text": this.text
+      "text": md.render(this.text)
     }
   }
 }
@@ -99,8 +104,6 @@ module.exports.EmailEvent = class EmailEvent {
     if (!this.hasDate) {
       this.date = new module.exports.DateRange(moment(fbd.start_time), moment(fbd.end_time))
     }
-
-    // TODO: Event title
 
     if (!this.hasLocation) {
       if (fbd.place.location === undefined) {

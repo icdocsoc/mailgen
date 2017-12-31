@@ -20,6 +20,7 @@
     <xsd:attribute name="logos" type="xsd:boolean" default="true" />
     <xsd:attribute name="agenda" type="xsd:boolean" default="true" />
     <xsd:attribute name="social" type="xsd:boolean" default="true" />
+    <xsd:attribute name="title" type="xsd:string" />
   </xsd:complexType>
 
   <xsd:complexType name="EventType">

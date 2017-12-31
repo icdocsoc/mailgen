@@ -19,7 +19,8 @@ types.EmailMeta.constructWithNode = node => {
   return new types.EmailMeta(
     attrOrDefaultValue(node, "logos", "true") === "true",
     attrOrDefaultValue(node, "agenda", "true") === "true",
-    attrOrDefaultValue(node, "social", "true") === "true"
+    attrOrDefaultValue(node, "social", "true") === "true",
+    attrOrDefaultValue(node, "title", null)
   )
 }
 

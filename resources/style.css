@@ -296,8 +296,12 @@ img.docsoc-logo {
   width: 200px;
 }
 
-.head-links img {
+.head-links img, .component.sign img {
   position: relative;
   width: 16px;
   height: 16px;
+}
+
+.component.sign a[fb] {
+  text-decoration: none;
 }

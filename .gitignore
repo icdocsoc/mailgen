@@ -60,3 +60,4 @@ typings/
 /testing
 .DS_Store
 .tern-project
+*.swp

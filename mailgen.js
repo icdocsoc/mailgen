@@ -86,6 +86,13 @@ types.EmailImage.constructWithNode = node => {
     attrOrDefaultValue(node, "title", null))
 }
 
+types.EmailSign.constructWithNode = node => {
+  return new types.EmailSign(node.attr("name").value(),
+    node.attr("role").value(),
+    attrOrDefaultValue(node, "facebook", null),
+    node.text())
+}
+
 // Utility functions
 function readFileSyncOrExit(path, kind) {
   try {
@@ -146,7 +153,8 @@ function attrOrDefaultValue(node, attribute, def) {
     "text"    : types.EmailText,
     "event"   : types.EmailEvent,
     "sponsor" : types.EmailSponsor,
-    "image"   : types.EmailImage
+    "image"   : types.EmailImage,
+    "sign"    : types.EmailSign
   }
 
   const emailData = emailXMLDoc.childNodes().map(x =>

@@ -238,3 +238,29 @@ module.exports.EmailImage = class EmailImage {
     }
   }
 }
+
+module.exports.EmailSign = class EmailSign {
+  constructor(name, role, facebook = null, text) {
+    this.name = name
+    this.role = role
+    this.facebook = facebook
+    this.text = text
+  }
+
+  get hasFacebook() {
+    return this.facebook !== null
+  }
+
+  get template() {
+    return "sign.html"
+  }
+
+  templateData(md) {
+    return {
+      "name": this.name,
+      "role": this.role,
+      "facebook": this.facebook,
+      "text": md.render(this.text)
+    }
+  }
+}

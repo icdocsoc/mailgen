@@ -16,6 +16,7 @@
       <xsd:element name="event" type="EventType" />
       <xsd:element name="sponsor" type="SponsorType" />
       <xsd:element name="image" type="ImageType" />
+      <xsd:element name="sign" type="SignType" />
     </xsd:choice>
     <xsd:attribute name="logos" type="xsd:boolean" default="true" />
     <xsd:attribute name="agenda" type="xsd:boolean" default="true" />
@@ -97,5 +98,15 @@
     <xsd:attribute name="src" type="xsd:anyURI" use="required" />
     <xsd:attribute name="alt" type="xsd:string" />
     <xsd:attribute name="title" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:complexType name="SignType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="name" type="xsd:string" use="required" />
+        <xsd:attribute name="role" type="xsd:string" use="required" />
+        <xsd:attribute name="facebook" type="xsd:string" />
+      </xsd:extension>
+    </xsd:simpleContent>
   </xsd:complexType>
 </xsd:schema>

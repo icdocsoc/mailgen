@@ -94,6 +94,10 @@ types.EmailSign.constructWithNode = node => {
     stripIndent(node.text()))
 }
 
+types.EmailHr.constructWithNode = node => {
+  return new types.EmailHr()
+}
+
 // Utility functions
 function readFileSyncOrExit(path, kind) {
   try {
@@ -155,7 +159,8 @@ function attrOrDefaultValue(node, attribute, def) {
     "event"   : types.EmailEvent,
     "sponsor" : types.EmailSponsor,
     "image"   : types.EmailImage,
-    "sign"    : types.EmailSign
+    "sign"    : types.EmailSign,
+    "hr"      : types.EmailHr
   }
 
   const emailData = emailXMLDoc.childNodes().map(x =>

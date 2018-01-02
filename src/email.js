@@ -264,3 +264,13 @@ module.exports.EmailSign = class EmailSign {
     }
   }
 }
+
+module.exports.EmailHr = class EmailHr {
+  get template() {
+    return "hr.html"
+  }
+
+  templateData(md) {
+    return {}
+  }
+}

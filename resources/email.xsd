@@ -17,6 +17,7 @@
       <xsd:element name="sponsor" type="SponsorType" />
       <xsd:element name="image" type="ImageType" />
       <xsd:element name="sign" type="SignType" />
+      <xsd:element name="hr" type="xsd:NMTOKENS" />
     </xsd:choice>
     <xsd:attribute name="logos" type="xsd:boolean" default="true" />
     <xsd:attribute name="agenda" type="xsd:boolean" default="true" />

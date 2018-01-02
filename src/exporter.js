@@ -39,7 +39,7 @@ module.exports.render = (meta, content) => {
   return Mustache.render(contents, {
     "has_social": meta.social,
     "has_logos": meta.logos,
-    "has_agenda": meta.agenda,
+    "has_agenda": meta.agenda && agendaItems !== null && agendaItems.length > 0,
     "title": meta.title,
     "agenda": agendaItems,
     "content": blocks,

@@ -48,7 +48,7 @@ tag.
 
 Emails are composed in XML and validated against the schema located in
 `resources/email.xsd`. xs3p-generated documentation can be found in
-`docs/email.html`.
+`docs/email.html` ([GitHub Pages](https://icdocsoc.github.io/mailgen/email.html)).
 
 Most tags and attributes are optional. The generator defaults to sensible
 defaults, or excludes elements.

@@ -9,6 +9,7 @@ const fs            = require('fs'),
       path          = require('path'),
       inlineCss     = require('inline-css'),
       hminify       = require('html-minifier'),
+      stripIndent   = require('strip-indent'),
 // Own dependencies
       types         = require('./src/email.js'),
       sponsors      = require('./src/sponsors.js'),
@@ -25,11 +26,11 @@ types.EmailMeta.constructWithNode = node => {
 }
 
 types.EmailHeading.constructWithNode = node => {
-  return new types.EmailHeading(node.text())
+  return new types.EmailHeading(stripIndent(node.text()))
 }
 
 types.EmailText.constructWithNode = node => {
-  return new types.EmailText(node.text())
+  return new types.EmailText(stripIndent(node.text()))
 }
 
 types.EmailEvent.constructWithNode = node => {
@@ -56,7 +57,7 @@ types.EmailEvent.constructWithNode = node => {
           c => types.EmailEventLink.constructWithNode(c))
         break
       case "text":
-        emailEvent.text = child.text()
+        emailEvent.text = stripIndent(child.text())
         break
     }
   }
@@ -66,7 +67,7 @@ types.EmailEvent.constructWithNode = node => {
 
 types.EmailEventLink.constructWithNode = node => {
   return new types.EmailEventLink(node.attr("href").value(),
-    node.text())
+    stripIndent(node.text()))
 }
 
 types.EmailEventFacebook.constructWithNode = node => {
@@ -76,7 +77,7 @@ types.EmailEventFacebook.constructWithNode = node => {
 
 types.EmailSponsor.constructWithNode = node => {
   return new types.EmailSponsor(node.attr("company").value(),
-    node.text())
+    stripIndent(node.text()))
 }
 
 types.EmailImage.constructWithNode = node => {
@@ -90,7 +91,7 @@ types.EmailSign.constructWithNode = node => {
   return new types.EmailSign(node.attr("name").value(),
     node.attr("role").value(),
     attrOrDefaultValue(node, "facebook", null),
-    node.text())
+    stripIndent(node.text()))
 }
 
 // Utility functions

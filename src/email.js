@@ -1,8 +1,8 @@
 "use strict";
 
-const fb         = require('./fb.js'),
-      sponsors   = require('./sponsors.js'),
-      moment     = require('moment')
+const fb       = require('./fb.js'),
+      sponsors = require('./sponsors.js'),
+      moment   = require('moment')
 
 module.exports.EmailMeta = class EmailMeta {
   constructor(logos = true, agenda = true, social = true, title = null) {
@@ -28,7 +28,7 @@ module.exports.EmailHeading = class EmailHeading {
 
   templateData(md) {
     return {
-      "text": md.render(`# ${this.text}`)
+      "text": md.render(`# ${this.text.trim()}`)
     }
   }
 }

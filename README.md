@@ -54,9 +54,9 @@ Most tags and attributes are optional. The generator defaults to sensible
 defaults, or excludes elements.
 
 The &lt;event&gt; event component is one of the more complex components. This
-component will populate most of its field if a &lt;facebook&gt; tag is contained
-within. Manually defining &lt;text&gt;, etc... will override the information
-fetched from Facebook.
+component will populate most of its fields if a &lt;facebook&gt; tag is
+contained within. Manually defining &lt;text&gt;, etc... will override the
+information fetched from Facebook.
 
 Also have a look at the examples in the `examples` directory.
 

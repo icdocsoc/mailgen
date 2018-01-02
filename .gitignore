@@ -57,7 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
-/testing
 .DS_Store
 .tern-project
 *.swp
+/examples/*.html

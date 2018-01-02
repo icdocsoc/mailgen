@@ -10,7 +10,7 @@ const Mustache = require('mustache'),
 const md = require('markdown-it')({
   html:     true,
   xhtmlOut: true,
-  breaks:   true,
+  breaks:   false,
   linkify:  true
 })
 

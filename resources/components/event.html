@@ -1,7 +1,9 @@
 <div class="component event">
+  {{#header}}
   <div>
-    <img src="{{header}}" alt="{{header_alt}}"/>
+    <img src="{{.}}" alt="{{header_alt}}"/>
   </div>
+  {{/header}}
   <div class="left">
     <div class="date">
       <div class="month">{{month}}</div>

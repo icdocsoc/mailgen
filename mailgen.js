@@ -43,7 +43,7 @@ types.EmailEvent.constructWithNode = node => {
     attrOrDefaultValue(node, "location", null),
     attrOrDefaultValue(node, "external", "false") === "true")
 
-  const children = node.childNodes()
+  const children = stripComments(node.childNodes())
   for (const child of children) {
     switch (child.name()) {
       case "image":
@@ -53,7 +53,7 @@ types.EmailEvent.constructWithNode = node => {
         emailEvent.facebook = types.EmailEventFacebook.constructWithNode(child)
         break
       case "links":
-        emailEvent.links = child.childNodes().map(
+        emailEvent.links = stripComments(child.childNodes()).map(
           c => types.EmailEventLink.constructWithNode(c))
         break
       case "text":
@@ -117,6 +117,10 @@ function attrOrDefaultValue(node, attribute, def) {
   return attr.value()
 }
 
+function stripComments(nodes) {
+  return nodes.filter(x => x.type() !== "comment")
+}
+
 //* * * * * * MAIN * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 (async () => {
@@ -163,7 +167,7 @@ function attrOrDefaultValue(node, attribute, def) {
     "hr"      : types.EmailHr
   }
 
-  const emailData = emailXMLDoc.childNodes().map(x =>
+  const emailData = stripComments(emailXMLDoc.childNodes()).map(x =>
     emailTypeFields[x.name()].constructWithNode(x))
 
   // Update the facebook events with facebook information

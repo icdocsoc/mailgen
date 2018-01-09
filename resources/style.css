@@ -245,6 +245,7 @@ ul li {
 .component.event > .right ul {
   padding-left: 0;
   margin-top: 6px;
+  list-style-type: none;
 }
 
 .component.event .date {

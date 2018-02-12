@@ -14,11 +14,13 @@
     <ul>
       <li><strong>When:</strong> {{date}}</li>
       <li><strong>Where:</strong> {{location}}</li>
+      {{#links.0}}
       <li><strong>Link{{#plural_links}}s{{/plural_links}}:</strong>
         {{#links}}
         <a href="{{href}}">{{text}}</a>&nbsp;
         {{/links}}
       </li>
+      {{/links.0}}
     </ul>
 
     <div>

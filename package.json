@@ -18,15 +18,16 @@
   "homepage": "https://github.com/icdocsoc/mailgen#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "fbgraph": "^1.4.1",
-    "html-minifier": "^3.5.8",
-    "inline-css": "^2.2.3",
+    "fbgraph": "^1.4.4",
+    "html-minifier": "^3.5.16",
+    "inline-css": "^2.4.0",
     "jsonfile": "^4.0.0",
-    "libxmljs": "^0.18.7",
-    "markdown-it": "^8.4.0",
-    "moment": "^2.20.1",
+    "libxmljs": "^0.18.8",
+    "markdown-it": "^8.4.1",
+    "moment": "^2.22.1",
     "mustache": "^2.3.0",
+    "npm": "^6.0.1",
     "strip-indent": "^2.0.0",
-    "uuid": "^3.1.0"
+    "uuid": "^3.2.1"
   }
 }

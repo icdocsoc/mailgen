@@ -25,7 +25,8 @@ tag.
 - Clone the project.
 - `cd` into its directory.
 - Run `npm install`.
-- Set up Facebook. The generator doesn't work without this.
+- Set up Facebook. The generator's Facebook tag doesn't work without this.
+  - **FACEBOOK INTEGRATION IS CURRENTLY BROKEN, SEE ISSUE #4**
   - Go to <https://developers.facebook.com/apps/>.
   - Create a new app.
   - Add the 'Facebook Login' product.

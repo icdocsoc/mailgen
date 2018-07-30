@@ -25,6 +25,7 @@
     "libxmljs": "^0.18.8",
     "markdown-it": "^8.4.1",
     "moment": "^2.22.1",
+    "moment-timezone": "^0.5.21",
     "mustache": "^2.3.0",
     "npm": "^6.2.0",
     "strip-indent": "^2.0.0",

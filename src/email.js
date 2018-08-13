@@ -2,7 +2,7 @@
 
 const fb       = require('./fb.js'),
       sponsors = require('./sponsors.js'),
-      moment   = require('moment')
+      moment   = require('moment-timezone')
 
 module.exports.EmailMeta = class EmailMeta {
   constructor(logos = true, agenda = true, social = true, title = null) {
@@ -143,18 +143,23 @@ module.exports.EmailEvent = class EmailEvent {
   }
 
   templateData(md) {
+    const timezone = "Europe/London"
+    // TODO: Make timezone customisable from XML
+    let start = this.date.start.tz(timezone)
+    let end = this.date.end.tz(timezone)
+
     const formattedDates = (() => {
       // Check whether we have a single-day event
-      if (this.date.start.year() === this.date.end.year() &&
-        this.date.start.month() === this.date.end.month() &&
-        this.date.start.date() === this.date.end.date()) {
+      if (start.year() === end.year() &&
+        start.month() === end.month() &&
+        start.date() === end.date()) {
 
-        return this.date.start.format("Do MMMM YYYY, HH.mm-") +
-          this.date.end.format("HH.mm")
+        return start.format("Do MMMM YYYY, HH.mm-") +
+          end.format("HH.mm")
       }
 
-      return this.date.start.format("Do MMMM YYYY, HH.mm-") +
-        this.date.end.format("Do MMMM YYYY, HH.mm")
+      return start.format("Do MMMM YYYY, HH.mm-") +
+        end.format("Do MMMM YYYY, HH.mm")
     })()
 
     return {

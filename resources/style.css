@@ -178,6 +178,18 @@ ul li {
     width:600px;
 }
 
+.unsubscribe {
+  text-align: center;
+  font-size: 11px;
+  color: #d0d0d0;
+}
+
+.unsubscribe > a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 
 /* ---------------------------------------------------
                 RESPONSIVENESS

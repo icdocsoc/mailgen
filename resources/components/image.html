@@ -1,6 +1,8 @@
 <div class="component image">
   <center>
+    {{#link}}<a href="{{link}}">{{/link}}
     <img style="position: relative; width: {{width}}%" src="{{src}}"
       {{#alt}}alt="{{alt}}" {{/alt}}{{#title}}title="{{title}}"{{/title}}/>
+    {{#link}}</a>{{/link}}
   </center>
 </div>

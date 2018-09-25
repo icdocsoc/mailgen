@@ -215,11 +215,12 @@ module.exports.EmailSponsor = class EmailSponsor {
 }
 
 module.exports.EmailImage = class EmailImage {
-  constructor(src, width = 100, alt = null, title = null) {
+  constructor(src, width = 100, alt = null, title = null, link = null) {
     this.src = src
     this.width = width
     this.alt = alt
     this.title = title
+    this.link = link
   }
 
   get hasAlt() {
@@ -228,6 +229,10 @@ module.exports.EmailImage = class EmailImage {
 
   get hasTitle() {
     return this.title !== null
+  }
+
+  get hasLink() {
+    return this.link !== null
   }
 
   get template() {
@@ -239,7 +244,8 @@ module.exports.EmailImage = class EmailImage {
       "width": this.width,
       "src": this.src,
       "alt": this.alt,
-      "title": this.title
+      "title": this.title,
+      "link": this.link
     }
   }
 }

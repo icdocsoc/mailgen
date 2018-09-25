@@ -99,6 +99,7 @@
     <xsd:attribute name="src" type="xsd:anyURI" use="required" />
     <xsd:attribute name="alt" type="xsd:string" />
     <xsd:attribute name="title" type="xsd:string" />
+    <xsd:attribute name="link" type="xsd:string" />
   </xsd:complexType>
 
   <xsd:complexType name="SignType">

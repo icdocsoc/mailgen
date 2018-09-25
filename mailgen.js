@@ -84,7 +84,8 @@ types.EmailImage.constructWithNode = node => {
   return new types.EmailImage(node.attr("src").value(),
     parseInt(attrOrDefaultValue(node, "width", "100")),
     attrOrDefaultValue(node, "alt", null),
-    attrOrDefaultValue(node, "title", null))
+    attrOrDefaultValue(node, "title", null),
+    attrOrDefaultValue(node, "link", null))
 }
 
 types.EmailSign.constructWithNode = node => {

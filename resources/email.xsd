@@ -68,24 +68,25 @@
         <xsd:attribute name="company" use="required">
           <xsd:simpleType>
             <xsd:restriction base="xsd:string">
-              <xsd:enumeration value="accenture" />
+              <xsd:enumeration value="artificiallabs" />
               <xsd:enumeration value="baml" />
-              <xsd:enumeration value="barrick" />
               <xsd:enumeration value="blackrock" />
               <xsd:enumeration value="bloomberg" />
-              <xsd:enumeration value="capital_one" />
               <xsd:enumeration value="ef" />
               <xsd:enumeration value="facebook" />
               <xsd:enumeration value="g_research" />
               <xsd:enumeration value="go_cardless" />
               <xsd:enumeration value="jpmorgan" />
+              <xsd:enumeration value="liquidnet" />
+              <xsd:enumeration value="lseg" />
               <xsd:enumeration value="microsoft" />
               <xsd:enumeration value="netcraft" />
-              <xsd:enumeration value="newvoicemedia" />
               <xsd:enumeration value="next_jump" />
               <xsd:enumeration value="palantir" />
-              <xsd:enumeration value="sig" />
-              <xsd:enumeration value="thread" />
+              <xsd:enumeration value="pdtpartners" />
+              <xsd:enumeration value="samsungrd" />
+              <xsd:enumeration value="schlumberger" />
+              <xsd:enumeration value="stakezero" />
               <xsd:enumeration value="wluper" />
             </xsd:restriction>
           </xsd:simpleType>

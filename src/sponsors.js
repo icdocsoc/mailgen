@@ -1,23 +1,24 @@
 "use strict";
 
 module.exports = {
-  "accenture": "Accenture",
+  "artificiallabs": "Artificial Labs",
   "baml": "Bank of America Merrill Lynch",
-  "barrick": "Barrick Gold Corporation",
   "blackrock": "BlackRock",
   "bloomberg": "Bloomberg",
-  "capital_one": "Capital One",
   "ef": "EF",
   "facebook": "Facebook",
   "g_research": "G-Research",
   "go_cardless": "Go Cardless",
   "jpmorgan": "J.P. Morgan",
+  "liquidnet": "Liquidnet",
+  "lseg": "London Stock Exchange Group",
   "microsoft": "Microsoft",
   "netcraft": "Netcraft",
-  "newvoicemedia": "NewVoiceMedia",
   "next_jump": "Next Jump",
   "palantir": "Palantir",
-  "sig": "SIG",
-  "thread": "Thread",
+  "pdtpartners": "PDT Partners",
+  "samsungrd": "Samsung R&D",
+  "schlumberger": "Schlumberger",
+  "stakezero": "Stake Zero",
   "wluper": "Wluper"
 }

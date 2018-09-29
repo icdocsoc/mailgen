@@ -263,7 +263,7 @@ ul li {
 .component.event .date {
   position: relative;
   height: 110px;
-  width: 110px;
+  width: 110px !important;
   text-align: center;
   overflow: hidden;
   margin-top: 5px;

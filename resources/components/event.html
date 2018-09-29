@@ -1,14 +1,22 @@
 <div class="component event">
   {{#header}}
   <div>
-    <img src="{{.}}" alt="{{header_alt}}"/>
+    <img src="{{.}}"/>
   </div>
   {{/header}}
   <div class="left">
-    <div class="date">
-      <div class="month">{{month}}</div>
-      <div class="day">{{day}}</div>
-    </div>
+    <table style="width: 110px;">
+      <tr>
+        <td>
+          <center>
+            <div class="date">
+              <div class="month">{{month}}</div>
+              <div class="day">{{day}}</div>
+            </div>
+          </center>
+        </td>
+      </tr>
+    </table>
   </div>
   <div class="right">
     <ul>

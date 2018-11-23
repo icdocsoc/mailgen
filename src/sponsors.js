@@ -1,6 +1,7 @@
 "use strict";
 
 module.exports = {
+  "amex": "American Express",
   "artificiallabs": "Artificial Labs",
   "baml": "Bank of America Merrill Lynch",
   "blackrock": "BlackRock",

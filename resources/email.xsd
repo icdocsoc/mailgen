@@ -68,6 +68,7 @@
         <xsd:attribute name="company" use="required">
           <xsd:simpleType>
             <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="amex" />
               <xsd:enumeration value="artificiallabs" />
               <xsd:enumeration value="baml" />
               <xsd:enumeration value="blackrock" />

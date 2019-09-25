@@ -73,21 +73,29 @@
               <xsd:enumeration value="baml" />
               <xsd:enumeration value="blackrock" />
               <xsd:enumeration value="bloomberg" />
+              <xsd:enumeration value="citadel" />
               <xsd:enumeration value="ef" />
               <xsd:enumeration value="facebook" />
               <xsd:enumeration value="g_research" />
               <xsd:enumeration value="go_cardless" />
+              <xsd:enumeration value="gousto" />
+              <xsd:enumeration value="jane_street" />
               <xsd:enumeration value="jpmorgan" />
+              <xsd:enumeration value="jump_trading" />
               <xsd:enumeration value="liquidnet" />
               <xsd:enumeration value="lseg" />
+              <xsd:enumeration value="macquarie" />
               <xsd:enumeration value="microsoft" />
               <xsd:enumeration value="netcraft" />
               <xsd:enumeration value="next_jump" />
+              <xsd:enumeration value="oliver_wyman" />
               <xsd:enumeration value="palantir" />
               <xsd:enumeration value="pdtpartners" />
               <xsd:enumeration value="samsungrd" />
               <xsd:enumeration value="schlumberger" />
               <xsd:enumeration value="stakezero" />
+              <xsd:enumeration value="starleaf" />
+              <xsd:enumeration value="twosigma" />
               <xsd:enumeration value="wluper" />
             </xsd:restriction>
           </xsd:simpleType>

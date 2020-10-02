@@ -118,6 +118,7 @@
         <xsd:attribute name="name" type="xsd:string" use="required" />
         <xsd:attribute name="role" type="xsd:string" use="required" />
         <xsd:attribute name="facebook" type="xsd:string" />
+        <xsd:attribute name="linkedin" type="xsd:string" />
       </xsd:extension>
     </xsd:simpleContent>
   </xsd:complexType>

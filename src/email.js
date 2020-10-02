@@ -251,15 +251,20 @@ module.exports.EmailImage = class EmailImage {
 }
 
 module.exports.EmailSign = class EmailSign {
-  constructor(name, role, facebook = null, text) {
+  constructor(name, role, facebook = null, linkedin = null, text) {
     this.name = name
     this.role = role
     this.facebook = facebook
+    this.linkedin = linkedin
     this.text = text
   }
 
   get hasFacebook() {
     return this.facebook !== null
+  }
+
+  get hasLinkedin() {
+    return this.linkedin !== null
   }
 
   get template() {
@@ -271,6 +276,7 @@ module.exports.EmailSign = class EmailSign {
       "name": this.name,
       "role": this.role,
       "facebook": this.facebook,
+      "linkedin": this.linkedin,
       "text": md.render(this.text)
     }
   }

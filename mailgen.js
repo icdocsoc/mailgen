@@ -92,6 +92,7 @@ types.EmailSign.constructWithNode = node => {
   return new types.EmailSign(node.attr("name").value(),
     node.attr("role").value(),
     attrOrDefaultValue(node, "facebook", null),
+    attrOrDefaultValue(node, "linkedin", null),
     stripIndent(node.text()))
 }
 

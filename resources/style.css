@@ -1,15 +1,13 @@
 /* A lot of the CSS below is from EESoc - we <3 you guys */
 
-/* -------------------------------------
-                GLOBAL
-------------------------------------- */
+/* ------- GLOBAL ------- */
 * {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 * {
-  font-family: HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', 'Trade Gothic W01 Light', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Arial, 'Roboto', Helvetica, 'Lucida Grande', sans-serif;
 }
 
 img {
@@ -18,8 +16,8 @@ img {
 
 
 body {
-  -webkit-font-smoothing:antialiased;
-  -webkit-text-size-adjust:none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
   width: 100%!important;
   height: 100%;
   color: #606060;
@@ -27,10 +25,7 @@ body {
 }
 
 
-/* -------------------------------------
-                ELEMENTS
-------------------------------------- */
-
+/* ------- ELEMENTS ------- */
 a {
   color: #21558f;
 }
@@ -40,8 +35,8 @@ a {
 }
 
 p.callout {
-  padding:15px;
-  background-color:#ECF8FF;
+  padding: 15px;
+  background-color: #ECF8FF;
   margin-bottom: 15px;
 }
 
@@ -50,7 +45,7 @@ p.callout.important {
 }
 
 .callout a {
-  font-weight:bold;
+  font-weight: bold;
   color: #2BA6CB;
 }
 
@@ -95,13 +90,11 @@ hr {
 }
 
 table {
-    border-collapse: separate;
-    border-spacing: 0px;
+  border-collapse: separate;
+  border-spacing: 0px;
 }
 
-/* -------------------------------------
-               PAGE
-------------------------------------- */
+/* ------- PAGE ------- */
 table.page-wrap { width: 100%; text-align: center }
 
 .container {
@@ -116,66 +109,72 @@ table.page-wrap { width: 100%; text-align: center }
 }
 
 
-/* -------------------------------------
-                TYPOGRAPHY
-------------------------------------- */
+/* ------- TYPOGRAPHY ------- */
 h1,h2,h3,h4,h5,h6 {
-font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; line-height: 1.1; margin-bottom:15px; color:#000;
+  font-family: HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', 'Roboto', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  color: #000;
 }
 
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-size: 60%; color: #6f6f6f; line-height: 0; text-transform: none; }
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-size: 60%;
+  color: #6f6f6f;
+  line-height: 0;
+  text-transform: none;
+}
 
-h1.title { font-size: 44px; text-align: center; }
-h2.title { font-size: 24px; text-align: center; }
+h1.title { font-weight: 200; font-size: 44px; text-align: center; }
+h2.title { font-weight: 200; font-size: 24px; text-align: center; }
 
-h1 { font-weight:200; font-size: 24px;}
-h2 { font-weight:200; font-size: 22px;}
-h3 { font-weight:500; font-size: 17px;}
-h4 { font-weight:500; font-size: 14px;}
-h5 { font-weight:900; font-size: 14px;}
-h6 { font-weight:900; font-size: 14px; text-transform: uppercase; color:#E0E0E0;}
+h1 { font-weight: 300; font-size: 24px; }
+h2 { font-weight: 300; font-size: 22px; }
+h3 { font-weight: 400; font-size: 17px; }
+h4 { font-weight: 500; font-size: 14px; }
+h5 { font-weight: 900; font-size: 14px; }
+h6 { font-weight: 900; font-size: 14px; text-transform: uppercase; color: #E0E0E0; }
 
 p.date { text-align: center; }
 
 p, ul {
-        margin-bottom: 10px;
-        font-weight: normal;
-        font-size:14px;
-        line-height:1.6;
+  margin-bottom: 10px;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.6;
 }
-p.lead { font-size:17px; }
-p.last { margin-bottom:0px;}
+p.lead { font-size: 17px; }
+p.last { margin-bottom: 0px; }
 
 ul li {
-        margin-left:20px;
-        list-style-position: outside;
+  margin-left: 20px;
+  list-style-position: outside;
 }
 
 .agenda {
-    margin: 15px 0px;
+  margin: 15px 0px;
 }
 
 .agenda ol {
-    margin-left: 15px;
-    list-style-position: inside;
+  margin-left: 15px;
+  list-style-position: inside;
 }
 
 .agenda ol li {
-    margin: 5px 0px;
+  margin: 5px 0px;
 }
 
 .head-links {
-    text-align: center;
-    margin-bottom: 15px;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .head-links a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .container {
-    margin-top: 5px;
-    width:600px;
+  margin-top: 5px;
+  width: 600px;
 }
 
 .unsubscribe {
@@ -191,11 +190,8 @@ ul li {
 }
 
 
-/* ---------------------------------------------------
-                RESPONSIVENESS
-                Nuke it from orbit. It's the only way to be sure.
------------------------------------------------------- */
-
+/* ------- RESPONSIVENES ------- */
+/* Nuke it from orbit. It's the only way to be sure. */
 /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
 .container {
   display: block!important;
@@ -207,10 +203,10 @@ ul li {
 
 /* This should also be a block element, so that it will fill 100% of the .container */
 .content {
-  padding:0px 15px;
-  max-width:600px;
-  margin:0 auto;
-  display:block;
+  padding: 0px 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
 }
 
 /* Let's make sure tables in the content area are 100% wide */
@@ -218,11 +214,8 @@ ul li {
   width: 100%;
 }
 
-/* -------------------------------------------
-                PHONE
-                For clients that support media queries.
-                Nothing fancy.
--------------------------------------------- */
+/* ------- PHONE ------- */
+/* For clients that support media queries. Nothing fancy. */
 @media only screen and (max-width: 600px) {
   a[class="btn"] {
     display: block!important;
@@ -233,7 +226,7 @@ ul li {
 
   div[class="column"] {
     width: auto!important;
-    float:none!important;
+    float: none!important;
   }
 
   table[class="social"] div[class="column"] {
@@ -246,10 +239,7 @@ ul li {
   }
 }
 
-/* -------------------------------------------
-                COMPONENTS
--------------------------------------------- */
-
+/* ------- COMPONENTS ------- */
 .component.event > .left {
   float: left;
 }
@@ -292,7 +282,7 @@ ul li {
   height: 70px;
   color: black;
   font-size: 60px;
-  line-height:70px;
+  line-height: 70px;
 }
 
 .component.event > .clear {
@@ -309,10 +299,14 @@ img.docsoc-logo {
   width: 200px;
 }
 
+.head-links span {
+  vertical-align: middle;
+}
+
 .head-links img, .component.sign img {
-  position: relative;
   width: 16px;
-  height: 16px;
+  padding-right: 5px;
+  vertical-align: middle;
 }
 
 .component.sign a[fb] {

@@ -68,17 +68,23 @@
         <xsd:attribute name="company" use="required">
           <xsd:simpleType>
             <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="wluper" />
               <xsd:enumeration value="amex" />
+              <xsd:enumeration value="arrival" />
               <xsd:enumeration value="artificiallabs" />
               <xsd:enumeration value="baml" />
               <xsd:enumeration value="blackrock" />
               <xsd:enumeration value="bloomberg" />
               <xsd:enumeration value="citadel" />
+              <xsd:enumeration value="crowdstrike" />
+              <xsd:enumeration value="drw" />
               <xsd:enumeration value="ef" />
               <xsd:enumeration value="facebook" />
               <xsd:enumeration value="g_research" />
               <xsd:enumeration value="go_cardless" />
               <xsd:enumeration value="gousto" />
+              <xsd:enumeration value="graphcore" />
+              <xsd:enumeration value="imc" />
               <xsd:enumeration value="jane_street" />
               <xsd:enumeration value="jpmorgan" />
               <xsd:enumeration value="jump_trading" />
@@ -88,14 +94,18 @@
               <xsd:enumeration value="microsoft" />
               <xsd:enumeration value="netcraft" />
               <xsd:enumeration value="next_jump" />
+              <xsd:enumeration value="optiver" />
               <xsd:enumeration value="oliver_wyman" />
               <xsd:enumeration value="palantir" />
               <xsd:enumeration value="pdtpartners" />
               <xsd:enumeration value="samsungrd" />
               <xsd:enumeration value="schlumberger" />
+              <xsd:enumeration value="showcode" />
               <xsd:enumeration value="stakezero" />
               <xsd:enumeration value="starleaf" />
+              <xsd:enumeration value="thought_machine" />
               <xsd:enumeration value="twosigma" />
+              <xsd:enumeration value="vmware" />
               <xsd:enumeration value="wluper" />
             </xsd:restriction>
           </xsd:simpleType>

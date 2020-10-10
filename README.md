@@ -21,26 +21,29 @@ tag.
 
 ## Installation & Setup
 
-- Install nodejs and npm.
+- Install nodejs, npm and nvm.
 - Clone the project.
 - `cd` into its directory.
+- Run `nvm use --delete-prefix v8.17.0`.
+  - If you are getting a `command not found` error, run `source /usr/share/nvm/init-nvm.sh` and retry.
+  - If you are getting a `version not yet installed` error, run `nvm install v8.17.0` and retry.
 - Run `npm install`.
 - Set up Facebook. The generator's Facebook tag doesn't work without this.
   - **FACEBOOK INTEGRATION IS CURRENTLY BROKEN, SEE ISSUE #4**
-  - Go to <https://developers.facebook.com/apps/>.
-  - Create a new app.
-  - Add the 'Facebook Login' product.
-    - Provide a dummy website URL.
-    - Go to the settings for 'Facebook Login'.
-    - Add a dummy OAuth redirect URI.
-      - Copy this to the `redirect_uri` field of `config.json`.
-    - Save.
-  - Go to the app settings.
-    - Copy the App ID to the `client_id` field of `config.json`.
-    - Copy the App Secret to the `client_secret` field of `config.json`.
-  - Run `./fbsetup.js` and follow the instructions. NB: The code is returned in
-    the redirect URL as a GET parameter.
-  - Make sure not to share the contents of `config.json`.
+  - ~~Go to <https://developers.facebook.com/apps/>.~~
+  - ~~Create a new app.~~
+  - ~~Add the 'Facebook Login' product.~~
+    - ~~Provide a dummy website URL.~~
+    - ~~Go to the settings for 'Facebook Login'.~~
+    - ~~Add a dummy OAuth redirect URI.~~
+      - ~~Copy this to the `redirect_uri` field of `config.json`.~~
+    - ~~Save.~~
+  - ~~Go to the app settings.~~
+    - ~~Copy the App ID to the `client_id` field of `config.json`.~~
+    - ~~Copy the App Secret to the `client_secret` field of `config.json`.~~
+  - ~~Run `./fbsetup.js` and follow the instructions. NB: The code is returned in
+    the redirect URL as a GET parameter.~~
+  - ~~Make sure not to share the contents of `config.json`.~~
 - Done. Run `./mailgen.js <path to xml>` to generate an email. The email gets
   placed in the same directory as the xml. Only invoke from the root of the
   repository.
@@ -80,4 +83,3 @@ Once done, the script will output the path of the generated HTML file.
   the short form in the logo URL.
 - Add a mapping from this short form in `src/sponsors.js` for the alt text.
 - Update the logo collage on the website.
-

@@ -21,7 +21,9 @@
   <div class="right">
     <ul>
       <li><strong>When:</strong> {{date}}</li>
+      {{#location}}
       <li><strong>Where:</strong> {{location}}</li>
+      {{/location}}
       {{#links.0}}
       <li><strong>Link{{#plural_links}}s{{/plural_links}}:</strong>
         {{#links}}

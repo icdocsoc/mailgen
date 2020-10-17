@@ -292,6 +292,7 @@ ul li {
 .component.sponsor .logo {
   position: relative;
   width: 50%;
+  padding: 4vh;
 }
 
 img.docsoc-logo {

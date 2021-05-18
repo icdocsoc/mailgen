@@ -27,6 +27,7 @@ module.exports = {
   "netcraft": "Netcraft",
   "next_jump": "Next Jump",
   "optiver": "Optiver",
+  "origin": "Origin",
   "oliver_wyman": "Oliver Wyman",
   "palantir": "Palantir",
   "pdtpartners": "PDT Partners",

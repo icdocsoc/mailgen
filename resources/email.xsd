@@ -95,6 +95,7 @@
               <xsd:enumeration value="netcraft" />
               <xsd:enumeration value="next_jump" />
               <xsd:enumeration value="optiver" />
+              <xsd:enumeration value="origin" />
               <xsd:enumeration value="oliver_wyman" />
               <xsd:enumeration value="palantir" />
               <xsd:enumeration value="pdtpartners" />

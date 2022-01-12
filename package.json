@@ -23,7 +23,7 @@
     "inline-css": "^2.4.0",
     "jsonfile": "^4.0.0",
     "libxmljs": "^0.18.8",
-    "markdown-it": "^8.4.1",
+    "markdown-it": "^12.3.2",
     "moment": "^2.22.1",
     "moment-timezone": "^0.5.21",
     "mustache": "^2.3.0",
